@@ -501,6 +501,7 @@ flowchart TD
     R -- "No" --> T["Mostrar Caso 3: FAIL"]
 
     S --> U(["Fin"])
+    T --> U
 ```
 
 ---
@@ -809,6 +810,5 @@ Por ejemplo, si para calcular la altura máxima escribiéramos una fórmula equi
 El computador no sabe física y tampoco sabe qué resultado queríamos obtener. Simplemente hace exactamente lo que le pedimos, incluso cuando lo que le pedimos está mal.
 
 Por eso usamos casos conocidos y pruebas `PASS/FAIL`: no basta con comprobar que el código corre, también hay que comprobar que está haciendo lo correcto.
-    T --> U
 
 ---
