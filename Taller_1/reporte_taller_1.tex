@@ -1,0 +1,103 @@
+% ============================================================
+% Reporte Taller 1 — Física Computacional
+% ============================================================
+
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% ---------- Datos del taller ----------
+\newcommand{\curso}{Física Computacional (106018C)}
+\newcommand{\taller}{Taller 1 --- Introducción a Fortran}
+\newcommand{\semana}{Semana 1}
+\newcommand{\lenguaje}{Fortran}
+\newcommand{\estudiante}{CRISTIAN ANDRÉS CÁRDENAS MUÑOZ}
+\newcommand{\fechaentrega}{14/09/2026}
+% --------------------------------------
+
+\begin{document}
+
+\begin{center}
+  {\large\bfseries \curso} \\[2pt]
+  {\bfseries \taller} \\[2pt]
+  \semana\ \quad --- \quad Lenguaje: \lenguaje \\[2pt]
+  \estudiante\ \quad --- \quad \fechaentrega
+\end{center}
+
+\vspace{4pt}
+\hrule
+\vspace{6pt}
+
+% ---------------- 1. Contexto físico ----------------
+
+\textbf{1. Contexto físico.}
+Se estudió el movimiento vertical de un proyectil lanzado con una rapidez inicial $v_0$ y un ángulo $\theta$ respecto a la horizontal. El objetivo fue calcular mediante un programa en Fortran la altura máxima alcanzada, utilizando la componente vertical de la velocidad inicial y la aceleración gravitacional.
+
+% ---------------- 2. Método ----------------
+
+\textbf{2. Método.}
+Se implementó directamente la expresión analítica para la altura máxima de un proyectil,
+
+\begin{equation*}
+h_{\max} =
+\frac{v_0^2\sin^2(\theta)}{2g},
+\qquad
+g = 9.8\ \mathrm{m/s^2}.
+\end{equation*}
+
+Como la función \texttt{sin()} de Fortran utiliza radianes, el ángulo ingresado en grados se convirtió antes del cálculo mediante
+
+\begin{equation*}
+\theta_{\mathrm{rad}}
+=
+\theta_{\mathrm{grados}}
+\frac{\pi}{180}.
+\end{equation*}
+
+El programa recibe $v_0$ y $\theta$, realiza un eco de las entradas y posteriormente calcula $h_{\max}$. Finalmente ejecuta tres casos conocidos y compara el resultado obtenido con un valor de referencia usando una tolerancia de $0.001$ m.
+
+% ---------------- 3. Resultado ----------------
+
+\textbf{3. Resultado.}
+Los tres casos de prueba reprodujeron los valores de referencia con errores relativos despreciables.
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Caso & Valor obtenido (m) & Referencia (m) & Error relativo \\
+\midrule
+$90^\circ$, $v_0=9.8$ & 4.9000 & 4.9000 & 0.0000\% \\
+$45^\circ$, $v_0=20$ & 10.20408 & 10.2041 & 0.00018\% \\
+$30^\circ$, $v_0=20$ & 5.10204 & 5.1020 & 0.00080\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Verificación (PASS/FAIL):} 3 de 3 casos de referencia pasaron correctamente.
+
+% ---------------- 4. Obstáculo ----------------
+
+\textbf{4. Obstáculo o decisión de implementación.}
+Una decisión importante fue convertir explícitamente el ángulo de grados a radianes antes de utilizar \texttt{sin()}. Inicialmente esto resulta fácil de pasar por alto, ya que el usuario normalmente piensa el ángulo en grados, mientras que Fortran interpreta el argumento trigonométrico en radianes. También se utilizó una tolerancia numérica en lugar de comparar números reales mediante igualdad exacta.
+
+% ---------------- 5. Conclusión ----------------
+
+\textbf{5. Conclusión.}
+El taller permitió relacionar el diseño de un algoritmo con su implementación real en Fortran. Además de obtener correctamente la altura máxima del proyectil, las pruebas PASS/FAIL mostraron que un programa no solamente debe compilar y ejecutarse, sino también producir resultados físicamente consistentes.
+
+\vspace{4pt}
+\hrule
+\vspace{4pt}
+
+{\small Código fuente: ver archivo adjunto en mi repo profe
+\texttt{altura\_maxima\_proyectil.f90}.}
+
+\end{document}
