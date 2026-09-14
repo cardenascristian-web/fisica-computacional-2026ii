@@ -97,81 +97,53 @@ flowchart TD
 
 ---
 
-## 1.b. Preparar una tortilla
-
-### Pseudocódigo
-
-```text
 Inicio
     Reunir los ingredientes y utensilios
     Tomar los huevos
 
-    Si hay huevos disponibles entonces
-        Romper los huevos en un recipiente
-        Agregar sal al gusto
-        Batir los huevos
+    Verificar el estado de no pudredumbre de los huevos
 
-        Colocar una sartén en la estufa
-        Agregar aceite o mantequilla
-        Encender la estufa
+    Si los huevos están en buen estado entonces
 
-        Verter los huevos batidos en la sartén
+        Pensar detenidamente cómo prefiero comer los huevos hoy
 
-        Mientras la parte inferior no esté cocida
-            Continuar cocinando
-        Fin Mientras
+        Si después de una profunda reflexión sigo queriendo tortilla entonces
+            Romper los huevos en un recipiente
+            Agregar sal al gusto
+            Batir los huevos
 
-        Voltear la tortilla
+            Colocar una sartén en la estufa
+            Agregar aceite o mantequilla
+            Encender la estufa
 
-        Mientras el otro lado no esté cocido
-            Continuar cocinando
-        Fin Mientras
+            Verter los huevos batidos en la sartén
 
-        Apagar la estufa
-        Retirar la tortilla de la sartén
-        Servir la tortilla
+            Mientras la parte inferior no esté cocida
+                Observar pacientemente la tortilla
+                Resistir la tentación de voltearla antes de tiempo
+                Continuar cocinando
+            Fin Mientras
+
+            Voltear la tortilla
+
+            Mientras el otro lado no esté cocido
+                Continuar cocinando
+            Fin Mientras
+
+            Apagar la estufa
+            Retirar la tortilla de la sartén
+            Servir la tortilla
+
+            Contemplar brevemente las consecuencias de mis decisiones culinarias
+
+        Sino
+            Elegir otra preparación para los huevos
+        Fin Si
 
     Sino
-        Informar que no es posible preparar la tortilla
+        No consumir los huevos bajo ninguna circunstancia
+        Desechar los huevos
+        Considerar seriamente revisar la nevera con mayor frecuencia
     Fin Si
+
 Fin
-```
-
-### Diagrama de flujo
-
-```mermaid
-flowchart TD
-
-    A([Inicio]) --> B[Reunir ingredientes y utensilios]
-    B --> C[Tomar los huevos]
-
-    C --> D{¿Hay huevos disponibles?}
-
-    D -- No --> X[Informar que no es posible preparar la tortilla]
-    X --> Z([Fin])
-
-    D -- Sí --> E[Romper los huevos en un recipiente]
-    E --> F[Agregar sal al gusto]
-    F --> G[Batir los huevos]
-    G --> H[Colocar una sartén en la estufa]
-    H --> I[Agregar aceite o mantequilla]
-    I --> J[Encender la estufa]
-    J --> K[Verter los huevos batidos]
-
-    K --> L{¿La parte inferior está cocida?}
-
-    L -- No --> M[Continuar cocinando]
-    M --> L
-
-    L -- Sí --> N[Voltear la tortilla]
-
-    N --> O{¿El otro lado está cocido?}
-
-    O -- No --> P[Continuar cocinando]
-    P --> O
-
-    O -- Sí --> Q[Apagar la estufa]
-    Q --> R[Retirar la tortilla]
-    R --> S[Servir la tortilla]
-    S --> Z
-```
