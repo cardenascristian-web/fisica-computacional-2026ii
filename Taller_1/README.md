@@ -329,7 +329,7 @@ flowchart TD
     O2 --> N
 
     N -- No --> P[Subir las escaleras hacia los comedores]
-    P --> Q[Entregar el ticket]
+    P --> Q[Permitir que escaneen mi carnet]
     Q --> R[Recibir el Centralazo del día]
 
     R --> S{¿Hay una mesa disponible?}
