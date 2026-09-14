@@ -206,7 +206,7 @@ flowchart TD
 ```
 
 ---
-## 1.c. Almorzar en Central el intentando bendecir mi organismo con un buen Centralazo
+## 1.c. Almorzar en la Cafetería Central: el "Centralazo"
 
 ### Pseudocódigo
 
@@ -239,7 +239,6 @@ Inicio
             Sino
                 Aceptar la realidad económica
                 Buscar otra forma de sobrevivir al mediodía
-                Fin
             Fin Si
 
         Fin Si
@@ -295,72 +294,74 @@ Fin
 ```mermaid
 flowchart TD
 
-    A([Inicio]) --> B[Ir a la Cafetería Central]
+    A(["Inicio"]) --> B["Ir a la Cafetería Central"]
 
-    B --> C{¿Hoy hay Centralazo?}
+    B --> C{"¿Hoy hay Centralazo?"}
 
-    C -- No --> X[Aceptar que hoy no hubo Centralazo]
-    X --> X2[Buscar comida en otro lugar]
-    X2 --> Z([Fin])
+    C -- "No" --> X["Aceptar que hoy no hubo Centralazo"]
+    X --> X2["Buscar comida en otro lugar"]
+    X2 --> Z(["Fin"])
 
-    C -- Sí --> D[Recordar que el menú es el mismo para todos]
-    D --> E[Aceptar filosóficamente lo que haya tocado hoy]
+    C -- "Sí" --> D["Recordar que el menú es el mismo para todos"]
+    D --> E["Aceptar filosóficamente lo que haya tocado hoy"]
 
-    E --> F{¿Tengo ticket?}
+    E --> F{"¿Tengo ticket?"}
 
-    F -- Sí --> M[Ir a la fila para subir a los comedores]
+    F -- "Sí" --> M["Ir a la fila para subir a los comedores"]
 
-    F -- No --> G{¿Tengo dos lukas?}
+    F -- "No" --> G{"¿Tengo dos lukas?"}
 
-    G -- No --> H[Aceptar la realidad económica]
-    H --> H2[Buscar otra forma de sobrevivir al mediodía]
+    G -- "No" --> H["Aceptar la realidad económica"]
+    H --> H2["Buscar otra forma de sobrevivir al mediodía"]
     H2 --> Z
 
-    G -- Sí --> I[Hacer la fila para comprar el ticket]
-    I --> J[Esperar pacientemente mi turno]
-    J --> K[Pagar dos lukas]
-    K --> L[Recibir el ticket]
+    G -- "Sí" --> I["Hacer la fila para comprar el ticket"]
+    I --> J["Esperar pacientemente mi turno"]
+    J --> K["Pagar dos lukas"]
+    K --> L["Recibir el ticket"]
     L --> M
 
-    M --> N{¿Hay personas delante de mí?}
+    M --> N{"¿Hay personas delante de mí?"}
 
-    N -- Sí --> O[Esperar pacientemente]
-    O --> O2[Cuestionar por qué todos decidieron almorzar al mismo tiempo]
+    N -- "Sí" --> O["Esperar pacientemente"]
+    O --> O2["Cuestionar por qué todos decidieron almorzar al mismo tiempo"]
     O2 --> N
 
-    N -- No --> P[Subir las escaleras hacia los comedores]
-    P --> Q[Permitir que escaneen mi carnet]
-    Q --> R[Recibir el Centralazo del día]
+    N -- "No" --> P["Subir las escaleras hacia los comedores"]
+    P --> Q["Entregar el ticket"]
+    Q --> R["Recibir el Centralazo del día"]
 
-    R --> S{¿Hay una mesa disponible?}
+    R --> S{"¿Hay una mesa disponible?"}
 
-    S -- Sí --> T[Sentarse]
-    S -- No --> U[Buscar pacientemente algún espacio libre]
+    S -- "Sí" --> T["Sentarse"]
+    S -- "No" --> U["Buscar pacientemente algún espacio libre"]
     U --> T
 
-    T --> V[Observar detenidamente el Centralazo]
-    V --> W[Evaluar visualmente la situación]
-    W --> W2[Recordar que costó solamente dos lukas]
-    W2 --> AA[Comer el almuerzo]
+    T --> V["Observar detenidamente el Centralazo"]
+    V --> W["Evaluar visualmente la situación"]
+    W --> W2["Recordar que costó solamente dos lukas"]
+    W2 --> AA["Comer el almuerzo"]
 
-    AA --> AB{¿Todavía tengo hambre y queda comida?}
+    AA --> AB{"¿Todavía tengo hambre y queda comida?"}
 
-    AB -- Sí --> AC[Continuar comiendo]
+    AB -- "Sí" --> AC["Continuar comiendo"]
     AC --> AB
 
-    AB -- No --> AD{¿Ya no tengo hambre?}
+    AB -- "No" --> AD{"¿Ya no tengo hambre?"}
 
-    AD -- Sí --> AE[Considerar el Centralazo un éxito]
-    AD -- No --> AF[Aceptar que hoy el Centralazo no fue suficiente]
+    AD -- "Sí" --> AE["Considerar el Centralazo un éxito"]
+    AD -- "No" --> AF["Aceptar que hoy el Centralazo no fue suficiente"]
 
-    AE --> AG[Recoger los residuos]
+    AE --> AG["Recoger los residuos"]
     AF --> AG
 
-    AG --> AH[Depositar la basura en su lugar correspondiente]
-    AH --> AI[Salir del comedor]
+    AG --> AH["Depositar la basura en su lugar correspondiente"]
+    AH --> AI["Salir del comedor"]
+    AI --> Z
 ```
 
 ---
+
 # Punto 2 - Altura máxima de un proyectil
 
 ## Descripción del problema
@@ -369,22 +370,25 @@ Se desea diseñar un programa en Fortran que calcule la altura máxima alcanzada
 
 La ecuación utilizada es:
 
-\[
-h_{max} = \frac{v_0^2 \sin^2(\theta)}{2g}
-\]
+$$
+h_{\max} = \frac{v_0^2 \sin^2(\theta)}{2g}
+$$
 
 donde:
 
-- `v0` es la rapidez inicial del proyectil en m/s.
-- `theta` es el ángulo de lanzamiento.
-- `g = 9.8 m/s²` es la aceleración de la gravedad.
-- `h_max` es la altura máxima alcanzada en metros.
+- $v_0$ es la rapidez inicial del proyectil en m/s.
+- $\theta$ es el ángulo de lanzamiento.
+- $g = 9.8\ \mathrm{m/s^2}$ es la aceleración de la gravedad.
+- $h_{\max}$ es la altura máxima alcanzada en metros.
 
 Debido a que la función `sin()` de Fortran recibe el ángulo en radianes, primero se debe convertir el ángulo ingresado en grados mediante:
 
-\[
-\theta_{rad} = \theta_{grados}\frac{\pi}{180}
-\]
+$$
+\theta_{\mathrm{rad}}
+=
+\theta_{\mathrm{grados}}
+\frac{\pi}{180}
+$$
 
 ---
 
@@ -416,9 +420,12 @@ Inicio
     Caso 1:
         angulo = 90 grados
         v0 = 9.8 m/s
-        Comparar con 4.9000 m
+        valor esperado = 4.9000 m
 
-        Si la diferencia está dentro de la tolerancia
+        Calcular la altura
+
+        Si la diferencia entre el resultado y el valor esperado
+        está dentro de la tolerancia entonces
             Mostrar "Caso 1: PASS"
         Sino
             Mostrar "Caso 1: FAIL"
@@ -427,9 +434,12 @@ Inicio
     Caso 2:
         angulo = 45 grados
         v0 = 20.0 m/s
-        Comparar con 10.2041 m
+        valor esperado = 10.2041 m
 
-        Si la diferencia está dentro de la tolerancia
+        Calcular la altura
+
+        Si la diferencia entre el resultado y el valor esperado
+        está dentro de la tolerancia entonces
             Mostrar "Caso 2: PASS"
         Sino
             Mostrar "Caso 2: FAIL"
@@ -438,9 +448,12 @@ Inicio
     Caso 3:
         angulo = 30 grados
         v0 = 20.0 m/s
-        Comparar con 5.1020 m
+        valor esperado = 5.1020 m
 
-        Si la diferencia está dentro de la tolerancia
+        Calcular la altura
+
+        Si la diferencia entre el resultado y el valor esperado
+        está dentro de la tolerancia entonces
             Mostrar "Caso 3: PASS"
         Sino
             Mostrar "Caso 3: FAIL"
@@ -449,53 +462,49 @@ Inicio
 Fin
 ```
 
-## Diagrama de flujo
+### Diagrama de flujo
 
 ```mermaid
 flowchart TD
 
-    A([Inicio]) --> B[Definir constantes g y pi]
+    A(["Inicio"]) --> B["Definir constantes g y pi"]
 
-    B --> C[/Leer rapidez inicial v0/]
-    C --> D[/Leer angulo en grados/]
+    B --> C["Leer rapidez inicial v0"]
+    C --> D["Leer ángulo en grados"]
 
-    D --> E[Mostrar nuevamente los datos ingresados]
+    D --> E["Mostrar nuevamente los datos ingresados"]
 
-    E --> F[Convertir grados a radianes]
+    E --> F["Convertir el ángulo de grados a radianes"]
 
-    F --> G[Calcular altura maxima]
+    F --> G["Calcular la altura máxima"]
 
-    G --> H[/Mostrar altura maxima en metros/]
+    G --> H["Mostrar la altura máxima en metros"]
 
-    H --> I[Calcular caso de referencia 1]
+    H --> I["Calcular caso de referencia 1"]
 
-    I --> J{¿Resultado dentro de la tolerancia?}
+    I --> J{"¿Resultado dentro de la tolerancia?"}
 
-    J -- Sí --> K[Mostrar Caso 1: PASS]
-    J -- No --> L[Mostrar Caso 1: FAIL]
+    J -- "Sí" --> K["Mostrar Caso 1: PASS"]
+    J -- "No" --> L["Mostrar Caso 1: FAIL"]
 
-    K --> M[Calcular caso de referencia 2]
+    K --> M["Calcular caso de referencia 2"]
     L --> M
 
-    M --> N{¿Resultado dentro de la tolerancia?}
+    M --> N{"¿Resultado dentro de la tolerancia?"}
 
-    N -- Sí --> O[Mostrar Caso 2: PASS]
-    N -- No --> P[Mostrar Caso 2: FAIL]
+    N -- "Sí" --> O["Mostrar Caso 2: PASS"]
+    N -- "No" --> P["Mostrar Caso 2: FAIL"]
 
-    O --> Q[Calcular caso de referencia 3]
+    O --> Q["Calcular caso de referencia 3"]
     P --> Q
 
-    Q --> R{¿Resultado dentro de la tolerancia?}
+    Q --> R{"¿Resultado dentro de la tolerancia?"}
 
-    R -- Sí --> S[Mostrar Caso 3: PASS]
-    R -- No --> T[Mostrar Caso 3: FAIL]
+    R -- "Sí" --> S["Mostrar Caso 3: PASS"]
+    R -- "No" --> T["Mostrar Caso 3: FAIL"]
 
-    S --> U([Fin])
+    S --> U(["Fin"])
     T --> U
-```
-
----
-    AI --> Z
 ```
 
 ---
