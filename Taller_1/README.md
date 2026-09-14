@@ -383,12 +383,9 @@ donde:
 
 Debido a que la función `sin()` de Fortran recibe el ángulo en radianes, primero se debe convertir el ángulo ingresado en grados mediante:
 
-$$
-\theta_{\mathrm{rad}}
-=
-\theta_{\mathrm{grados}}
-\frac{\pi}{180}
-$$
+```math
+\theta_{\mathrm{rad}} = \theta_{\mathrm{grados}} \frac{\pi}{180}
+```
 
 ---
 
