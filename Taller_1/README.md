@@ -206,3 +206,161 @@ flowchart TD
 ```
 
 ---
+## 1.c. Almorzar en la Cafetería Central
+
+### Pseudocódigo
+
+```text
+Inicio
+    Ir a la Cafetería Central
+
+    Verificar que la cafetería esté abierta y aparentemente funcional
+
+    Si la cafetería está abierta entonces
+
+        Revisar detenidamente las opciones disponibles
+
+        Pensar con seriedad qué tan hambriento estoy
+        Comparar mentalmente hambre, precio y aspecto de la comida
+
+        Si existe una opción que parece razonablemente comestible entonces
+
+            Elegir el almuerzo
+
+            Verificar si tengo suficiente dinero para pagarlo
+
+            Si tengo suficiente dinero entonces
+
+                Hacer la fila
+
+                Mientras haya personas delante de mí
+                    Esperar pacientemente
+                    Contemplar brevemente si realmente valía la pena venir
+                Fin Mientras
+
+                Pedir el almuerzo
+                Pagar el almuerzo
+                Recibir la comida
+
+                Buscar una mesa disponible
+
+                Si hay una mesa disponible entonces
+                    Sentarse
+                Sino
+                    Buscar un lugar alternativo donde sentarse
+                Fin Si
+
+                Observar el almuerzo por unos segundos
+                Preguntarme si tomé una buena decisión
+
+                Comer el almuerzo
+
+                Mientras todavía tenga hambre y quede comida
+                    Continuar comiendo
+                Fin Mientras
+
+                Si ya no tengo hambre entonces
+                    Considerar el almuerzo un éxito
+                Sino
+                    Aceptar las consecuencias de haber escogido mal
+                Fin Si
+
+                Recoger los residuos
+                Depositar la basura en su lugar correspondiente
+                Salir de la cafetería
+
+            Sino
+                Mirar nuevamente los precios
+                Aceptar la realidad económica
+                Buscar una alternativa más barata
+            Fin Si
+
+        Sino
+            Cuestionar seriamente las opciones disponibles
+            Buscar comida en otro lugar
+        Fin Si
+
+    Sino
+        Aceptar que hoy no se almuerza ahí
+        Buscar otra opción para sobrevivir
+    Fin Si
+
+Fin
+```
+
+### Diagrama de flujo
+
+```mermaid
+flowchart TD
+
+    A([Inicio]) --> B[Ir a la Cafetería Central]
+
+    B --> C[Verificar que la cafetería esté abierta y aparentemente funcional]
+
+    C --> D{¿La cafetería está abierta?}
+
+    D -- No --> X[Aceptar que hoy no se almuerza ahí]
+    X --> X2[Buscar otra opción para sobrevivir]
+    X2 --> Z([Fin])
+
+    D -- Sí --> E[Revisar detenidamente las opciones disponibles]
+
+    E --> F[Pensar con seriedad qué tan hambriento estoy]
+    F --> G[Comparar hambre, precio y aspecto de la comida]
+
+    G --> H{¿Existe una opción razonablemente comestible?}
+
+    H -- No --> Y[Cuestionar seriamente las opciones disponibles]
+    Y --> Y2[Buscar comida en otro lugar]
+    Y2 --> Z
+
+    H -- Sí --> I[Elegir el almuerzo]
+
+    I --> J{¿Tengo suficiente dinero?}
+
+    J -- No --> K[Mirar nuevamente los precios]
+    K --> L[Aceptar la realidad económica]
+    L --> M[Buscar una alternativa más barata]
+    M --> Z
+
+    J -- Sí --> N[Hacer la fila]
+
+    N --> O{¿Hay personas delante de mí?}
+
+    O -- Sí --> P[Esperar pacientemente]
+    P --> P2[Contemplar brevemente si realmente valía la pena venir]
+    P2 --> O
+
+    O -- No --> Q[Pedir el almuerzo]
+    Q --> R[Pagar el almuerzo]
+    R --> S[Recibir la comida]
+
+    S --> T{¿Hay una mesa disponible?}
+
+    T -- Sí --> U[Sentarse]
+    T -- No --> V[Buscar un lugar alternativo donde sentarse]
+    V --> U
+
+    U --> W[Observar el almuerzo por unos segundos]
+    W --> W2[Preguntarme si tomé una buena decisión]
+    W2 --> AA[Comer el almuerzo]
+
+    AA --> AB{¿Todavía tengo hambre y queda comida?}
+
+    AB -- Sí --> AC[Continuar comiendo]
+    AC --> AB
+
+    AB -- No --> AD{¿Ya no tengo hambre?}
+
+    AD -- Sí --> AE[Considerar el almuerzo un éxito]
+    AD -- No --> AF[Aceptar las consecuencias de haber escogido mal]
+
+    AE --> AG[Recoger los residuos]
+    AF --> AG
+
+    AG --> AH[Depositar la basura en su lugar correspondiente]
+    AH --> AI[Salir de la cafetería]
+    AI --> Z
+```
+
+---
