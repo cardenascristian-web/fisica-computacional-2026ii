@@ -206,7 +206,7 @@ flowchart TD
 ```
 
 ---
-## 1.c. Almorzar en la Cafetería Central
+## 1.c. Almorzar en Central el intentando bendecir mi organismo con un buen Centralazo
 
 ### Pseudocódigo
 
@@ -214,75 +214,77 @@ flowchart TD
 Inicio
     Ir a la Cafetería Central
 
-    Verificar que la cafetería esté abierta y aparentemente funcional
+    Verificar que hoy haya Centralazo
 
-    Si la cafetería está abierta entonces
+    Si hay Centralazo entonces
 
-        Revisar detenidamente las opciones disponibles
+        Recordar que el menú es el mismo para todos
+        Aceptar filosóficamente lo que haya tocado hoy
 
-        Pensar con seriedad qué tan hambriento estoy
-        Comparar mentalmente hambre, precio y aspecto de la comida
+        Verificar si tengo ticket
 
-        Si existe una opción que parece razonablemente comestible entonces
-
-            Elegir el almuerzo
-
-            Verificar si tengo suficiente dinero para pagarlo
-
-            Si tengo suficiente dinero entonces
-
-                Hacer la fila
-
-                Mientras haya personas delante de mí
-                    Esperar pacientemente
-                    Contemplar brevemente si realmente valía la pena venir
-                Fin Mientras
-
-                Pedir el almuerzo
-                Pagar el almuerzo
-                Recibir la comida
-
-                Buscar una mesa disponible
-
-                Si hay una mesa disponible entonces
-                    Sentarse
-                Sino
-                    Buscar un lugar alternativo donde sentarse
-                Fin Si
-
-                Observar el almuerzo por unos segundos
-                Preguntarme si tomé una buena decisión
-
-                Comer el almuerzo
-
-                Mientras todavía tenga hambre y quede comida
-                    Continuar comiendo
-                Fin Mientras
-
-                Si ya no tengo hambre entonces
-                    Considerar el almuerzo un éxito
-                Sino
-                    Aceptar las consecuencias de haber escogido mal
-                Fin Si
-
-                Recoger los residuos
-                Depositar la basura en su lugar correspondiente
-                Salir de la cafetería
-
-            Sino
-                Mirar nuevamente los precios
-                Aceptar la realidad económica
-                Buscar una alternativa más barata
-            Fin Si
+        Si tengo ticket entonces
+            Ir directamente a la fila para subir a los comedores
 
         Sino
-            Cuestionar seriamente las opciones disponibles
-            Buscar comida en otro lugar
+            Verificar si tengo dos lukas disponibles
+
+            Si tengo dos lukas entonces
+                Hacer la fila para comprar el ticket
+                Esperar pacientemente mi turno
+                Pagar dos lukas
+                Recibir el ticket
+                Ir a la fila para subir a los comedores
+
+            Sino
+                Aceptar la realidad económica
+                Buscar otra forma de sobrevivir al mediodía
+                Fin
+            Fin Si
+
         Fin Si
 
+        Mientras haya personas delante de mí en la fila
+            Esperar pacientemente
+            Cuestionar por qué todo el mundo decidió almorzar exactamente al mismo tiempo
+        Fin Mientras
+
+        Subir las escaleras hacia los comedores
+        Entregar el ticket
+
+        Recibir el Centralazo del día
+
+        Buscar una mesa disponible
+
+        Si hay una mesa disponible entonces
+            Sentarse
+        Sino
+            Buscar pacientemente algún espacio libre
+        Fin Si
+
+        Observar detenidamente el Centralazo
+        Evaluar visualmente la situación
+        Recordar que costó solamente dos lukas
+
+        Comer el almuerzo
+
+        Mientras todavía tenga hambre y quede comida
+            Continuar comiendo
+        Fin Mientras
+
+        Si ya no tengo hambre entonces
+            Considerar el Centralazo un éxito
+        Sino
+            Aceptar que hoy el Centralazo no fue suficiente
+        Fin Si
+
+        Recoger los residuos
+        Depositar la basura en su lugar correspondiente
+        Salir del comedor
+
     Sino
-        Aceptar que hoy no se almuerza ahí
-        Buscar otra opción para sobrevivir
+        Aceptar que hoy no hubo Centralazo
+        Buscar comida en otro lugar
     Fin Si
 
 Fin
@@ -295,54 +297,50 @@ flowchart TD
 
     A([Inicio]) --> B[Ir a la Cafetería Central]
 
-    B --> C[Verificar que la cafetería esté abierta y aparentemente funcional]
+    B --> C{¿Hoy hay Centralazo?}
 
-    C --> D{¿La cafetería está abierta?}
-
-    D -- No --> X[Aceptar que hoy no se almuerza ahí]
-    X --> X2[Buscar otra opción para sobrevivir]
+    C -- No --> X[Aceptar que hoy no hubo Centralazo]
+    X --> X2[Buscar comida en otro lugar]
     X2 --> Z([Fin])
 
-    D -- Sí --> E[Revisar detenidamente las opciones disponibles]
+    C -- Sí --> D[Recordar que el menú es el mismo para todos]
+    D --> E[Aceptar filosóficamente lo que haya tocado hoy]
 
-    E --> F[Pensar con seriedad qué tan hambriento estoy]
-    F --> G[Comparar hambre, precio y aspecto de la comida]
+    E --> F{¿Tengo ticket?}
 
-    G --> H{¿Existe una opción razonablemente comestible?}
+    F -- Sí --> M[Ir a la fila para subir a los comedores]
 
-    H -- No --> Y[Cuestionar seriamente las opciones disponibles]
-    Y --> Y2[Buscar comida en otro lugar]
-    Y2 --> Z
+    F -- No --> G{¿Tengo dos lukas?}
 
-    H -- Sí --> I[Elegir el almuerzo]
+    G -- No --> H[Aceptar la realidad económica]
+    H --> H2[Buscar otra forma de sobrevivir al mediodía]
+    H2 --> Z
 
-    I --> J{¿Tengo suficiente dinero?}
+    G -- Sí --> I[Hacer la fila para comprar el ticket]
+    I --> J[Esperar pacientemente mi turno]
+    J --> K[Pagar dos lukas]
+    K --> L[Recibir el ticket]
+    L --> M
 
-    J -- No --> K[Mirar nuevamente los precios]
-    K --> L[Aceptar la realidad económica]
-    L --> M[Buscar una alternativa más barata]
-    M --> Z
+    M --> N{¿Hay personas delante de mí?}
 
-    J -- Sí --> N[Hacer la fila]
+    N -- Sí --> O[Esperar pacientemente]
+    O --> O2[Cuestionar por qué todos decidieron almorzar al mismo tiempo]
+    O2 --> N
 
-    N --> O{¿Hay personas delante de mí?}
+    N -- No --> P[Subir las escaleras hacia los comedores]
+    P --> Q[Entregar el ticket]
+    Q --> R[Recibir el Centralazo del día]
 
-    O -- Sí --> P[Esperar pacientemente]
-    P --> P2[Contemplar brevemente si realmente valía la pena venir]
-    P2 --> O
+    R --> S{¿Hay una mesa disponible?}
 
-    O -- No --> Q[Pedir el almuerzo]
-    Q --> R[Pagar el almuerzo]
-    R --> S[Recibir la comida]
+    S -- Sí --> T[Sentarse]
+    S -- No --> U[Buscar pacientemente algún espacio libre]
+    U --> T
 
-    S --> T{¿Hay una mesa disponible?}
-
-    T -- Sí --> U[Sentarse]
-    T -- No --> V[Buscar un lugar alternativo donde sentarse]
-    V --> U
-
-    U --> W[Observar el almuerzo por unos segundos]
-    W --> W2[Preguntarme si tomé una buena decisión]
+    T --> V[Observar detenidamente el Centralazo]
+    V --> W[Evaluar visualmente la situación]
+    W --> W2[Recordar que costó solamente dos lukas]
     W2 --> AA[Comer el almuerzo]
 
     AA --> AB{¿Todavía tengo hambre y queda comida?}
@@ -352,14 +350,14 @@ flowchart TD
 
     AB -- No --> AD{¿Ya no tengo hambre?}
 
-    AD -- Sí --> AE[Considerar el almuerzo un éxito]
-    AD -- No --> AF[Aceptar las consecuencias de haber escogido mal]
+    AD -- Sí --> AE[Considerar el Centralazo un éxito]
+    AD -- No --> AF[Aceptar que hoy el Centralazo no fue suficiente]
 
     AE --> AG[Recoger los residuos]
     AF --> AG
 
     AG --> AH[Depositar la basura en su lugar correspondiente]
-    AH --> AI[Salir de la cafetería]
+    AH --> AI[Salir del comedor]
     AI --> Z
 ```
 
