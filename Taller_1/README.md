@@ -358,6 +358,140 @@ flowchart TD
 
     AG --> AH[Depositar la basura en su lugar correspondiente]
     AH --> AI[Salir del comedor]
+# Punto 2 - Altura máxima de un proyectil
+
+## Descripción del problema
+
+Se desea diseñar un programa en Fortran que calcule la altura máxima alcanzada por un proyectil a partir de su rapidez inicial y del ángulo de lanzamiento respecto a la horizontal.
+
+La ecuación utilizada es:
+
+\[
+h_{max} = \frac{v_0^2 \sin^2(\theta)}{2g}
+\]
+
+donde:
+
+- `v0` es la rapidez inicial del proyectil en m/s.
+- `theta` es el ángulo de lanzamiento.
+- `g = 9.8 m/s²` es la aceleración de la gravedad.
+- `h_max` es la altura máxima alcanzada en metros.
+
+Debido a que la función `sin()` de Fortran recibe el ángulo en radianes, primero se debe convertir el ángulo ingresado en grados mediante:
+
+\[
+\theta_{rad} = \theta_{grados}\frac{\pi}{180}
+\]
+
+---
+
+## Pseudocódigo
+
+```text
+Inicio
+
+    Definir g = 9.8
+    Definir pi = 3.14159265
+
+    Leer rapidez inicial v0
+    Leer angulo_grados
+
+    Mostrar nuevamente los datos ingresados
+
+    Convertir el ángulo de grados a radianes
+
+    angulo_rad <- angulo_grados * pi / 180
+
+    Calcular la altura máxima
+
+    h_max <- (v0^2 * sin(angulo_rad)^2) / (2 * g)
+
+    Mostrar h_max en metros
+
+    Realizar pruebas de verificación
+
+    Caso 1:
+        angulo = 90 grados
+        v0 = 9.8 m/s
+        Comparar con 4.9000 m
+
+        Si la diferencia está dentro de la tolerancia
+            Mostrar "Caso 1: PASS"
+        Sino
+            Mostrar "Caso 1: FAIL"
+        Fin Si
+
+    Caso 2:
+        angulo = 45 grados
+        v0 = 20.0 m/s
+        Comparar con 10.2041 m
+
+        Si la diferencia está dentro de la tolerancia
+            Mostrar "Caso 2: PASS"
+        Sino
+            Mostrar "Caso 2: FAIL"
+        Fin Si
+
+    Caso 3:
+        angulo = 30 grados
+        v0 = 20.0 m/s
+        Comparar con 5.1020 m
+
+        Si la diferencia está dentro de la tolerancia
+            Mostrar "Caso 3: PASS"
+        Sino
+            Mostrar "Caso 3: FAIL"
+        Fin Si
+
+Fin
+```
+
+## Diagrama de flujo
+
+```mermaid
+flowchart TD
+
+    A([Inicio]) --> B[Definir constantes g y pi]
+
+    B --> C[/Leer rapidez inicial v0/]
+    C --> D[/Leer angulo en grados/]
+
+    D --> E[Mostrar nuevamente los datos ingresados]
+
+    E --> F[Convertir grados a radianes]
+
+    F --> G[Calcular altura maxima]
+
+    G --> H[/Mostrar altura maxima en metros/]
+
+    H --> I[Calcular caso de referencia 1]
+
+    I --> J{¿Resultado dentro de la tolerancia?}
+
+    J -- Sí --> K[Mostrar Caso 1: PASS]
+    J -- No --> L[Mostrar Caso 1: FAIL]
+
+    K --> M[Calcular caso de referencia 2]
+    L --> M
+
+    M --> N{¿Resultado dentro de la tolerancia?}
+
+    N -- Sí --> O[Mostrar Caso 2: PASS]
+    N -- No --> P[Mostrar Caso 2: FAIL]
+
+    O --> Q[Calcular caso de referencia 3]
+    P --> Q
+
+    Q --> R{¿Resultado dentro de la tolerancia?}
+
+    R -- Sí --> S[Mostrar Caso 3: PASS]
+    R -- No --> T[Mostrar Caso 3: FAIL]
+
+    S --> U([Fin])
+    T --> U
+```
+
+---
     AI --> Z
 ```
 
