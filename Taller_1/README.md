@@ -358,6 +358,7 @@ flowchart TD
 
     AG --> AH[Depositar la basura en su lugar correspondiente]
     AH --> AI[Salir del comedor]
+
 # Punto 2 - Altura máxima de un proyectil
 
 ## Descripción del problema
