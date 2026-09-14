@@ -501,7 +501,8 @@ flowchart TD
     R -- "No" --> T["Mostrar Caso 3: FAIL"]
 
     S --> U(["Fin"])
----
+```
+
 ---
 # Punto 3 - Glosario
 
