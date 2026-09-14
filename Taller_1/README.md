@@ -97,6 +97,11 @@ flowchart TD
 
 ---
 
+## 1.b. Preparar una tortilla
+
+### Pseudocódigo
+
+```text
 Inicio
     Reunir los ingredientes y utensilios
     Tomar los huevos
@@ -147,3 +152,57 @@ Inicio
     Fin Si
 
 Fin
+```
+
+### Diagrama de flujo
+
+```mermaid
+flowchart TD
+
+    A([Inicio]) --> B[Reunir ingredientes y utensilios]
+    B --> C[Tomar los huevos]
+    C --> D[Verificar el estado de no pudredumbre de los huevos]
+
+    D --> E{¿Los huevos están en buen estado?}
+
+    E -- No --> X[No consumir los huevos bajo ninguna circunstancia]
+    X --> Y[Desechar los huevos]
+    Y --> Y2[Considerar revisar la nevera con mayor frecuencia]
+    Y2 --> Z([Fin])
+
+    E -- Sí --> F[Pensar detenidamente cómo prefiero comer los huevos hoy]
+
+    F --> G{¿Sigo queriendo tortilla?}
+
+    G -- No --> H[Elegir otra preparación para los huevos]
+    H --> Z
+
+    G -- Sí --> I[Romper los huevos en un recipiente]
+    I --> J[Agregar sal al gusto]
+    J --> K[Batir los huevos]
+    K --> L[Colocar una sartén en la estufa]
+    L --> M[Agregar aceite o mantequilla]
+    M --> N[Encender la estufa]
+    N --> O[Verter los huevos batidos en la sartén]
+
+    O --> P{¿La parte inferior está cocida?}
+
+    P -- No --> Q[Observar pacientemente la tortilla]
+    Q --> R[Resistir la tentación de voltearla antes de tiempo]
+    R --> P
+
+    P -- Sí --> S[Voltear la tortilla]
+
+    S --> T{¿El otro lado está cocido?}
+
+    T -- No --> U[Continuar cocinando]
+    U --> T
+
+    T -- Sí --> V[Apagar la estufa]
+    V --> W[Retirar la tortilla de la sartén]
+    W --> AA[Servir la tortilla]
+    AA --> AB[Contemplar brevemente las consecuencias de mis decisiones culinarias]
+    AB --> Z
+```
+
+---
