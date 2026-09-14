@@ -810,6 +810,5 @@ El computador no sabe física y tampoco sabe qué resultado queríamos obtener. 
 
 Por eso usamos casos conocidos y pruebas `PASS/FAIL`: no basta con comprobar que el código corre, también hay que comprobar que está haciendo lo correcto.
     T --> U
-```
 
 ---
