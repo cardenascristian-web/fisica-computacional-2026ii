@@ -1,6 +1,6 @@
 # Taller 2 — Física Computacional
 
-**Autor:** Juan Manuel Garcés Andrade
+**Autor:** Cristian Andrés Cárdenas Muñoz
 
 ## Contenido
 
@@ -62,24 +62,6 @@ El 10 % de la muestra se alcanza aproximadamente a los **16.61 años**.
 
 Para el decaimiento se usa `numpy.linspace()` y una expresión vectorizada de NumPy. No se utiliza un ciclo `for` para calcular `N(t)`. Esto hace que la implementación siga directamente la ecuación física y facilite el análisis de muchos tiempos.
 
-## Verificación
-
-El notebook termina con casos conocidos que imprimen `PASS/FAIL` para:
-
-- `suma_seno_reducida`
-- `N_decaimiento`
-
-Antes de entregar, todos los casos deben imprimir `PASS`.
-
-## Estructura sugerida del repositorio
-
-```text
-Taller_2/
-├── README.md
-├── Taller_2_Fisica_Computacional.ipynb
-└── reporte/
-    └── Taller_2_Decaimiento_Radiactivo.pdf
-```
 
 ## Uso ético de IA
 
