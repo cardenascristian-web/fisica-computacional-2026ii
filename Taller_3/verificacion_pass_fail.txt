@@ -1,0 +1,13 @@
+PASS  Existe pendulo_limpio.dat
+PASS  Existe resultados_ajuste.dat
+PASS  Existe la figura
+PASS  Formato del archivo de datos  filas=89, columnas=5
+PASS  Formato del archivo de resultados  valores=5
+PASS  Número de datos N  obtenido=89, esperado=89
+PASS  Pendiente a  obtenida=4.0487347, esperada=4.0487347
+PASS  Intercepto b  obtenido=-0.0028878571, esperado=-0.0028878571
+PASS  Coeficiente R²  obtenido=0.99974782, esperado=0.99974782
+PASS  Gravedad g  obtenida=9.7508038, esperada=9.7508038
+PASS  Valor físico razonable de g  g=9.75080 m/s²
+
+RESUMEN PASS/FAIL: 11 de 11 pruebas pasaron.

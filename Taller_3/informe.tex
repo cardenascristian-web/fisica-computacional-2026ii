@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries Física Computacional (106018C)} \\[2pt]
+{\bfseries Taller 3 --- Ajuste lineal y péndulo simple} \\[2pt]
+Semana 3 \quad --- \quad Lenguajes: Fortran/Python \\[2pt]
+Cristian Andrés Cárdenas Muñoz \quad --- \quad 02/10/2026
+\end{center}
+
+\vspace{4pt}
+\hrule
+\vspace{6pt}
+
+\textbf{1. Contexto físico.}
+Para oscilaciones pequeñas, el período de un péndulo simple satisface $T=2\pi\sqrt{L/g}$. Al medir el período para distintas longitudes y linealizar la relación, es posible estimar experimentalmente la aceleración de la gravedad.
+
+\textbf{2. Método.}
+Se limpiaron los datos experimentales antes del ajuste: se corrigieron registros justificables, se restringió el análisis a $|\theta|\leq 10^{\circ}$ y se excluyeron mediciones con problemas experimentales documentados. En Fortran se realizó un ajuste lineal por mínimos cuadrados usando
+\[
+T^2=aL+b, \qquad a=\frac{N\sum xy-(\sum x)(\sum y)}{N\sum x^2-(\sum x)^2}, \qquad g=\frac{4\pi^2}{a}.
+\]
+
+\textbf{3. Resultado.}
+El programa procesó $N=89$ mediciones y obtuvo $a=4.04873469\,\mathrm{s^2/m}$, $b=-0.00288786\,\mathrm{s^2}$, $R^2=0.99974782$ y $g=9.75080380\,\mathrm{m/s^2}$.
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Caso & Valor obtenido & Valor de referencia & Error relativo \\
+\midrule
+$g$ & $9.7508\,\mathrm{m/s^2}$ & $9.81\,\mathrm{m/s^2}$ & $0.603\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+El valor de $R^2$ cercano a 1 indica una relación lineal muy fuerte entre $T^2$ y $L$. El intercepto pequeño y negativo sugiere una desviación sistemática reducida respecto al modelo ideal $b=0$, mientras que los residuos permanecen alrededor de cero sin una desviación dominante evidente.
+
+\textbf{Verificación (PASS/FAIL):} 11 de 11 pruebas pasaron.
+
+\textbf{4. Obstáculo o decisión de implementación.}
+Fue necesario distinguir entre errores corregibles y mediciones que debían excluirse. Por ejemplo, algunos tiempos correspondían al período de una oscilación y no al tiempo total; se corrigieron usando el número de oscilaciones registrado. Además, el programa se diseñó para leer un número desconocido de filas mediante \texttt{iostat}, evitando asumir que siempre existirían 100 registros.
+
+\textbf{5. Conclusión.}
+El ajuste lineal permitió recuperar un valor de $g$ con un error relativo menor al 1\%. La práctica mostró que la calidad del resultado depende tanto del algoritmo de mínimos cuadrados como de una limpieza de datos justificable y del respeto al dominio de validez del modelo de ángulo pequeño.
+
+\textbf{6. Uso de herramientas de IA.}
+Se utilizó ChatGPT como apoyo para interpretar las instrucciones, revisar la lógica del código, documentar decisiones y redactar el reporte. Los resultados se verificaron compilando el programa y mediante la celda automática PASS/FAIL del notebook.
+
+\vspace{4pt}
+\hrule
+\vspace{4pt}
+{\small Código fuente: ver archivo adjunto \texttt{ajuste\_pendulo.f90}.}
+
+\end{document}
