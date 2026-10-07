@@ -1,0 +1,78 @@
+% ============================================================
+% Reporte semanal - Fisica Computacional (106018C)
+% Taller 4 - Coeficiente de difusion a partir de caminatas aleatorias
+% ============================================================
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\newcommand{\curso}{Física Computacional (106018C)}
+\newcommand{\taller}{Taller 4 --- Coeficiente de difusión a partir de caminatas aleatorias}
+\newcommand{\semana}{Semana 4}
+\newcommand{\lenguaje}{Python}
+\newcommand{\estudiante}{CRISTIAN ANDRÉS CÁRDENAS MUÑOZ}
+\newcommand{\fechaentrega}{07/10/2026}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries \curso} \\[2pt]
+{\bfseries \taller} \\[2pt]
+\semana\ \quad --- \quad Lenguaje: \lenguaje \\[2pt]
+\estudiante\ \quad --- \quad \fechaentrega
+\end{center}
+
+\vspace{4pt}
+\hrule
+\vspace{6pt}
+
+\textbf{1. Contexto físico.}
+Se modeló la difusión unidimensional mediante caminatas aleatorias simétricas. El objetivo fue estimar el coeficiente de difusión $D$ a partir del crecimiento de $\langle x_n^2\rangle$ y comprobar cuánto puede alterar el resultado la calidad del generador pseudoaleatorio.
+
+\textbf{2. Método.}
+Se simularon $K=2000$ caminantes de $N=200$ pasos, con $a=1$ y $\Delta t=1$. Para cada paso se acumuló $x_n^2$ y luego se ajustó $\langle x_n^2\rangle=mn+b$ por mínimos cuadrados usando sumas explícitas. Como $t=n\Delta t$,
+\begin{equation*}
+\langle x^2\rangle=2Dt,\qquad D=\frac{m}{2\Delta t}.
+\end{equation*}
+
+\textbf{3. Resultado.}
+El ajuste con \texttt{random.Random} dio $m=1.03839$ e intercepto $b=-0.40870$. La comparación principal fue:
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Caso & $D$ obtenido & $D$ referencia & Error relativo \\
+\midrule
+\texttt{random.Random} & 0.51919 & 0.50000 & 3.84\% \\
+LCG (57,1,256) & 0.0862 & 0.5000 & 82.76\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Al llevar el modelo a oxígeno disuelto en agua, con $D_{O_2}=2\times10^{-9}\,\mathrm{m^2/s}$ y $\Delta t=1\,\mu\mathrm{s}$, se obtuvo $a=63.2\,\mathrm{nm}$ y $D_{\mathrm{sim}}=2.077\times10^{-9}\,\mathrm{m^2/s}$. El tiempo característico fue $0.025\,\mathrm{s}$ para $10\,\mu\mathrm{m}$ y $6.94\,\mathrm{h}$ para $1\,\mathrm{cm}$.
+
+\textbf{Verificación (PASS/FAIL):} 17 de 17 casos de la celda de verificación pasaron.
+
+\textbf{4. Obstáculo o decisión de implementación.}
+Una decisión importante fue no reiniciar la semilla dentro del ciclo de caminantes. Se creó un solo generador por simulación y se reutilizó en todas las trayectorias; reiniciar la misma semilla habría producido caminatas idénticas y un promedio sin significado estadístico.
+
+\textbf{5. Conclusión.}
+La caminata con el generador de Python reprodujo el valor teórico de $D$ con un error cercano al 4\%. En cambio, el LCG deficiente produjo un valor muy bajo y retornos periódicos al origen, mostrando que una distribución aparentemente uniforme no garantiza independencia ni resultados físicos correctos.
+
+\textbf{6. Uso de herramientas de IA.}
+Se utilizó ChatGPT como apoyo para revisar y depurar el notebook y para organizar la redacción del reporte. Los resultados finales se verificaron con la celda de pruebas del taller.
+
+\vspace{4pt}
+\hrule
+\vspace{4pt}
+{\small Código fuente: ver archivo adjunto \texttt{04\_NumerosAleatorios\_Difusion\_Python.ipynb}.}
+
+\end{document}
