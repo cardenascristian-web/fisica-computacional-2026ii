@@ -1,7 +1,0 @@
-PASS | Convergencia de pi — media(N=10^6)=3.141116, s(N=10^6)=0.002166, predicción=0.001642
-PASS | Pendiente del ajuste en FORTRAN — m=-0.5079, predicción=-0.5
-PASS | Integral 1D, valor medio — media=0.999731, dispersión=0.015292
-PASS | Integral 1D, acierto y error — media=1.000085, dispersión=0.024645
-PASS | Generador deficiente — |error| con N=10^5: 0.0479; con N=10^7: 0.0478
-
-RESUMEN: 5/5 PASS
