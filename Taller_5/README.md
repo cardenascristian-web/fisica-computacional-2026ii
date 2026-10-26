@@ -50,7 +50,7 @@ gfortran -std=f2008 -O2 -fcheck=all taller5_lcg.f90 -o taller5_lcg && ./taller5_
 
 ## Observaciones
 
-La reducción del error por Monte Carlo depende de que las muestras representen adecuadamente la distribución objetivo. La parte del LCG ilustra que muchos puntos no sustituyen un buen generador pseudoaleatorio. La comparacion de dos métodos de integración también muestra por qué conviene medir dispersión a lo largo de varias corridas, no solo observar una estimación.
+La reducción del error por Monte Carlo depende de que las muestras representen adecuadamente la distribución objetivo. La parte del LCG ilustra que muchos puntos no sustituyen un buen generador pseudoaleatorio. La comparacion de dos métodos de integración también muestra por qué conviene medir dispersión a lo largo de varias corridas, no solo observar una estimación. Por ultimo, se incluyeron los resultados en archivos sueltos como respuesta a la retroalimentacion previa donde, en terminos generales, se debian añadir los resultados sueltos como archivos particulares y mayor explicacion en la predileccion entre un metodo u otro, se deja claro el agradecimiento por el feedback y recalco su aplicacion en este taller.
 
 ## Uso de herramientas de IA
 
