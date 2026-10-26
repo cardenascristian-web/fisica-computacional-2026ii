@@ -1,0 +1,71 @@
+% =============================================================
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% ---------- Datos del taller: editar aquí ----------
+\newcommand{\curso}{Física Computacional (106018C)}
+\newcommand{\taller}{Taller 5 --- Método de Monte Carlo y convergencia}
+\newcommand{\semana}{Semana 5}
+\newcommand{\lenguaje}{Fortran 2008 / Python}
+\newcommand{\estudiante}{Cristian Andrés Cárdenas Muñoz (2518531)}
+\newcommand{\fechaentrega}{26/10/2026} % Revisar fecha real de entrega
+% ----------------------------------------------------
+
+\begin{document}
+\begin{center}
+{\large\bfseries \curso} \\[2pt]
+{\bfseries \taller} \\[2pt]
+\semana\ \quad --- \quad Lenguaje: \lenguaje \\[2pt]
+\estudiante\ \quad --- \quad \fechaentrega
+\end{center}
+\vspace{4pt}\hrule\vspace{6pt}
+
+\textbf{1. Contexto físico.}
+En física computacional, el muestreo aleatorio permite aproximar integrales y promedios de sistemas donde evaluarlos directamente puede resultar costoso. Como caso de referencia con solución conocida, se estimó el área del círculo unitario (\(\pi\)) y la integral de \(\sin x\) en \([0,\pi/2]\), para examinar precisión y convergencia.
+
+\textbf{2. Método.}
+Se usó Monte Carlo de acierto y error para el área del círculo y los métodos de valor medio (VM) y acierto y error (AE) para la integral. Se hicieron 20 corridas por cada \(N=10^2,\ldots,10^7\) en el cálculo de \(\pi\), y 1000 corridas de 1000 muestras para cada estimador de la integral:
+\begin{equation*}
+\hat\pi=4\frac{N_{\rm dentro}}{N},\qquad
+\hat I_{\rm VM}=\frac{\pi}{2N}\sum_{i=1}^N\sin x_i,\qquad
+s\propto N^{-1/2}.
+\end{equation*}
+La pendiente de \(\log_{10}s\) frente a \(\log_{10}N\) se ajustó por mínimos cuadrados en Fortran. La misma estimación de \(\pi\) se repitió con el generador LCG \((57,1,256)\) para examinar su sesgo.
+
+\textbf{3. Resultado.}
+Las cifras son medias de las corridas, excepto el LCG, que usa una sola secuencia periódica.
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Caso & Valor obtenido & Referencia & Error relativo \\
+\midrule
+\(\pi\), \(N=10^7\) & 3.141530 & 3.141593 & 0.00198\% \\
+Integral (VM) & 0.999731 & 1 & 0.02695\% \\
+Integral (AE) & 1.000085 & 1 & 0.00852\% \\
+\(\pi\), LCG \(N=10^7\) & 3.093750 & 3.141593 & 1.52288\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+La pendiente fue \(m=-0.5079\) (referencia: \(-0.5\)). Aunque la media de AE quedó algo más cerca de 1, su dispersión fue mayor: \(s_{\rm AE}=0.024645\) frente a \(s_{\rm VM}=0.015292\).
+
+\textbf{Verificación (PASS/FAIL):} 5 de 5 controles pasaron: convergencia, pendiente, los dos estimadores de la integral y el generador LCG.
+
+\textbf{4. Obstáculo o decisión de implementación.}
+Una media cercana al valor exacto no demuestra que el algoritmo sea estable. Por ello se repitieron los cálculos para medir la dispersión y se verificó la pendiente por un procedimiento independiente. También se acumularon conteos y sumas sin guardar millones de coordenadas, reduciendo el uso de memoria; fijar las semillas permitió reproducir la revisión.
+
+\textbf{5. Conclusión.}
+Monte Carlo se aproxima a los valores de referencia, pero mejorar la precisión estadística exige muchas más muestras. El valor medio fue más estable para esta integral; además, el LCG mostró que aumentar \(N\) no corrige un error sistemático por correlaciones. La calidad del generador importa tanto como la cantidad de puntos.
+
+\textbf{6. Uso de herramientas de IA.}
+Se utilizó ChatGPT para ordenar y direccionar ideas, corregir dudas puntuales en codigo, revisar una redaccion neutra y formal. Las propuestas se revisan y ajustan personalmente antes de la entrega.
+
+\vspace{4pt}\hrule\vspace{4pt}
+{\small Código fuente y notebook: repositorio de GitHub, carpeta \texttt{Taller\_5}.}
+\end{document}
