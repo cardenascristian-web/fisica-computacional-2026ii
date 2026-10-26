@@ -54,4 +54,4 @@ La reducción del error por Monte Carlo depende de que las muestras representen 
 
 ## Uso de herramientas de IA
 
-Se utilizo **ChatGPT** como apoyo para la interpretación del enunciado, desarrollo y revisión del código, explicaciones de los métodos y organización de archivos. Los programas se compilaron y se verificaron con sus respectivas salidas numéricas. La declaración final se incluirá también en el informe.
+Se utilizo ChatGPT como supervisor, mentor en dudas puntuales y ayuda en la redaccion. La declaración final se incluirá también en el informe.
