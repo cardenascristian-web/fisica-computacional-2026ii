@@ -1,0 +1,33 @@
+TALLER 5 - CALCULO DE PI Y CONVERGENCIA
+FISICA COMPUTACIONAL (106018C)
+Cristian Andres Cardenas Munoz - Codigo 2518531
+
+PARTE A - Convergencia del estimador de pi
+100    3.134000    0.161714
+      1000    3.126600    0.049779
+     10000    3.137260    0.015822
+    100000    3.142696    0.003486
+   1000000    3.141116    0.002166
+  10000000    3.141530    0.000400
+Pendiente de log10(s) contra log10(N):   -0.5079
+
+PARTE B - Integral de sen(x) en [0, pi/2]
+Valor medio (media, desviacion):    0.99973   0.01529
+Acierto y error (media, desviacion):    1.00009   0.02465
+
+PARTE C - LCG (57,1,256)
+100    3.040000
+      1000    3.084000
+     10000    3.093200
+    100000    3.093720
+   1000000    3.093740
+  10000000    3.093750
+
+VERIFICACION FINAL
+PASS | Convergencia de pi — media(N=10^6)=3.141116, s(N=10^6)=0.002166, predicción=0.001642
+PASS | Pendiente del ajuste en FORTRAN — m=-0.5079, predicción=-0.5
+PASS | Integral 1D, valor medio — media=0.999731, dispersión=0.015292
+PASS | Integral 1D, acierto y error — media=1.000085, dispersión=0.024645
+PASS | Generador deficiente — |error| con N=10^5: 0.0479; con N=10^7: 0.0478
+
+RESUMEN: 5/5 PASS
