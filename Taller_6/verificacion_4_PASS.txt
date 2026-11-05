@@ -1,0 +1,7 @@
+PASS | Caso 1: ocho núclidos — Pu-244: E_B = -7.53611738 MeV; M = 227342.0074 MeV
+PASS | Caso 2: máximo enlace para cada A — 257/257 búsquedas correctas; A=208: Z=82
+PASS | Caso 3: energías de la curva y U-238 — A=238: Z=92; E_B=-7.57958636 MeV
+PASS | Caso 4: mínimo global e imagen — Fortran: A=65, Z=29; Python: A=65, Z=29; PNG: presente
+
+Resumen: 4/4 PASS
+La arquitectura, los requisitos y la interpretación se revisan por separado.
